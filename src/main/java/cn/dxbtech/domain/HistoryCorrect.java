@@ -13,10 +13,10 @@ public class HistoryCorrect {
     @GeneratedValue
     private Long id;
     private Date time = new Date();
-    @Column(length = 65532)
+    @Column(columnDefinition = "TEXT", length = 65535)
     private String origin;
     private String originCharset;
-    @Column(length = 65532)
+    @Column(columnDefinition = "TEXT", length = 65535)
     private String result;
     private String resultCharset;
     private String ip;

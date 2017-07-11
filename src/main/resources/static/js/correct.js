@@ -18,8 +18,8 @@ $("#btn-correct").click(function () {
         return;
     }
 
-    if (tOrigin.val().length > 65532) {
-        hintError.html("最大支持65532个字符，当前" + tOrigin.val().length + "个字符");
+    if (tOrigin.val().length > 65535) {
+        hintError.html("最大支持65535个字符，当前" + tOrigin.val().length + "个字符");
         hintError.show();
         return;
     } else {
