@@ -15,5 +15,7 @@ spring.profiles.active=release
 mvn package -DskipTests
 jar charset-corrector-*.*.jar
 ```
-
-
+4.nginx
+```
+...
+```
