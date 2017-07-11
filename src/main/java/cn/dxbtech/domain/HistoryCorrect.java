@@ -1,5 +1,6 @@
 package cn.dxbtech.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,10 +13,14 @@ public class HistoryCorrect {
     @GeneratedValue
     private Long id;
     private Date time = new Date();
+    @Column(length = 65532)
     private String origin;
     private String originCharset;
+    @Column(length = 65532)
     private String result;
     private String resultCharset;
+    private String ip;
+    private String ua;
 
     public HistoryCorrect() {
     }
@@ -24,6 +29,23 @@ public class HistoryCorrect {
         this.origin = origin;
         this.originCharset = originCharset;
         this.result = result;
+        this.resultCharset = resultCharset;
+    }
+
+    public HistoryCorrect(String origin, String originCharset, String result, String resultCharset, String ip, String ua) {
+        this.origin = origin;
+        this.originCharset = originCharset;
+        this.result = result;
+        this.resultCharset = resultCharset;
+        this.ip = ip;
+        this.ua = ua;
+    }
+
+    public String getResultCharset() {
+        return resultCharset;
+    }
+
+    public void setResultCharset(String resultCharset) {
         this.resultCharset = resultCharset;
     }
 
@@ -65,5 +87,21 @@ public class HistoryCorrect {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getUa() {
+        return ua;
+    }
+
+    public void setUa(String ua) {
+        this.ua = ua;
     }
 }

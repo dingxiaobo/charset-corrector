@@ -2,6 +2,7 @@ package cn.dxbtech.service;
 
 import cn.dxbtech.domain.HistoryCorrect;
 import cn.dxbtech.domain.HistoryCorrectRepository;
+import cn.dxbtech.dto.CorrectDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,10 @@ public class CorrectService {
     }
 
     @Transactional
-    public String correct(String origin) throws UnsupportedEncodingException {
+    public CorrectDto correct(String origin, String ip, String ua) throws UnsupportedEncodingException {
 
         int strLength = Integer.MAX_VALUE;    //字符长度
-        String result = "";                   //从乱码字符串分析出的字符串
+        String result = null;                   //从乱码字符串分析出的字符串
         String originCharset = "";               //当前乱码字符串编码
         String resultCharset = "";            //乱码字符串正确的编码
 
@@ -46,9 +47,9 @@ public class CorrectService {
         //输出查询到的编码及正确文本格式
         logger.info(originCharset + "-->" + resultCharset + ":" + result);
 
-        historyCorrectRepository.save(new HistoryCorrect(origin, originCharset, result, resultCharset));
+        historyCorrectRepository.save(new HistoryCorrect(origin, originCharset, result, resultCharset, ip, ua));
 
-        return result;
+        return new CorrectDto(origin, originCharset, result, resultCharset);
     }
 
 }
