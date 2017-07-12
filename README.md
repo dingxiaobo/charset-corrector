@@ -1,6 +1,9 @@
 # 中文编码修正工具
 [http://char.dxbtech.cn](http://char.dxbtech.cn)
 
+![效果展示图](char-correct.gif)
+
+
 ### RUN
 1.Create Database In MySQL
 ```sql
